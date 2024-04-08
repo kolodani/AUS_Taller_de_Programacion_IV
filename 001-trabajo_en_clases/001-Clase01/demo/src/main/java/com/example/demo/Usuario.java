@@ -17,12 +17,16 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    public Usuario(){};
+    // constructor vacio por defecto
+    public Usuario() {
+    }
 
-    public Usuario(boolean enabled, String username, String password, String email){
-        this.enabled = enabled;
+    // constructor con parametros
+    public Usuario(String username, String password, String email, boolean enabled) {
         this.username = username;
         this.password = password;
         this.email = email;
+        this.enabled = enabled;
+        this.id = 100000L;
     }
 }

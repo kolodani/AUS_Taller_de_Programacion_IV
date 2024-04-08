@@ -64,10 +64,11 @@ public class HelloController {
         repo.deleteAll();
     }
 
-    @PostMapping("autoUser")
-    public void fillUser(){
-        Usuario u1 = new Usuario(true, "lolo","Julio","Batir@gmail.com");
-        repo.save(u1);
+    // crear un usuario con datos de prueba
+    // curl -X POST http://localhost:8080/api/usuarios/test
+    @PostMapping("usuarios/test")
+    public void test() {
+        repo.save(new Usuario("juan", "123", "jlopez@hotmail.com", true));
     }
 }
 
