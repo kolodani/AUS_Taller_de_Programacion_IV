@@ -63,5 +63,11 @@ public class HelloController {
     public void deleteAllUsers() {
         repo.deleteAll();
     }
+
+    @PostMapping("autoUser")
+    public void fillUser(){
+        Usuario u1 = new Usuario(true, "lolo","Julio","Batir@gmail.com");
+        repo.save(u1);
+    }
 }
 

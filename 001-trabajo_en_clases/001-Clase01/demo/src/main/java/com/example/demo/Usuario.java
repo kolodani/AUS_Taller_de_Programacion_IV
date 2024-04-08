@@ -16,4 +16,13 @@ public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    public Usuario(){};
+
+    public Usuario(boolean enabled, String username, String password, String email){
+        this.enabled = enabled;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+    }
 }
