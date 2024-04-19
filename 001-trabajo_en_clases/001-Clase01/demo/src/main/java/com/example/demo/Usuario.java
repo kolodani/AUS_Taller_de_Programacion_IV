@@ -9,10 +9,13 @@ import lombok.Data;
 @Entity
 @Data
 public class Usuario {
+    private String apellido;
+    private String nombre;
     private String username;
     private String password;
     private String email;
     private boolean enabled;
+    private transient long calculada;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

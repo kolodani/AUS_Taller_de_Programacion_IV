@@ -30,7 +30,7 @@ public class HelloController {
     // http://localhost:8080/api/usuarios
     // curl http://localhost:8080/api/usuarios
     @GetMapping("usuarios")
-    public List<Usuario> getUsuarios(){
+    public List<Usuario> getUsuarios() {
         return repo.findAll();
     }
 
@@ -38,13 +38,14 @@ public class HelloController {
     // http://localhost:8080/api/usuarios/1
     // curl http://localhost:8080/api/usuarios/1
     @GetMapping("usuarios/{id}")
-    public Usuario getUsuario(@PathVariable Long id){
+    public Usuario getUsuario(@PathVariable Long id) {
         return repo.findById(id).get();
     }
 
     // guardo un usuario
     // http://localhost:8080/api/usuarios
-    // curl -X POST -H "Content-Type: application/json" -d '{"nombre":"Juan"}' http://localhost:8080/api/usuarios
+    // curl -X POST -H "Content-Type: application/json" -d '{"nombre":"Juan"}'
+    // http://localhost:8080/api/usuarios
     @PostMapping("usuarios")
     public Usuario saveUser(@RequestBody Usuario user) {
         return repo.save(user);
@@ -71,4 +72,3 @@ public class HelloController {
         repo.save(new Usuario("juan", "123", "jlopez@hotmail.com", true));
     }
 }
-

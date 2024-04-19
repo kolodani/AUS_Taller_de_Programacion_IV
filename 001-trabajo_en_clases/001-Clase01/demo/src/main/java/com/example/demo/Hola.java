@@ -1,5 +1,5 @@
 package com.example.demo;
 
-public interface Hola{
+public interface Hola {
     String hola();
 }
