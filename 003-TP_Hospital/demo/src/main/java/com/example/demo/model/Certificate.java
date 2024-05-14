@@ -1,4 +1,6 @@
-package com.example.demo;
+package com.example.demo.model;
+
+import java.io.Serializable;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,7 +10,7 @@ import lombok.Data;
 
 @Data
 @Entity
-public class Allergies {
+public class Certificate implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,10 +18,10 @@ public class Allergies {
 
     private String name;
 
-    public Allergies() {
+    public Certificate() {
     }
 
-    public Allergies(String name) {
+    public Certificate(String name) {
         this.name = name;
     }
 }

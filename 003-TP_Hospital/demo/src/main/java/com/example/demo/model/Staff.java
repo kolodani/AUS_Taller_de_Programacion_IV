@@ -1,12 +1,9 @@
-package com.example.demo;
+package com.example.demo.model;
 
 import java.sql.Date;
 import java.util.Set;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -16,11 +13,7 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 public class Staff extends Person{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
-    private Date joined;
+    private Date joinedHospital;
 
     @ManyToMany
     private Set<Certificate> certificates;
@@ -36,8 +29,8 @@ public class Staff extends Person{
             String gender,
             String phone,
             Address address,
-            Date joined) {
+            Date joinedHospital) {
         super(name, surname, birthDate, title, gender, phone, address);
-        this.joined = joined;
+        this.joinedHospital = joinedHospital;
     }
 }

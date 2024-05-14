@@ -1,16 +1,18 @@
-package com.example.demo;
+package com.example.demo.model;
 
 import java.sql.Date;
+import java.io.Serializable;
+
 import jakarta.persistence.Embedded;
-import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.MappedSuperclass;
 import lombok.Data;
 
 @Data
-@Entity
-public class Person {
+@MappedSuperclass
+public class Person implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
