@@ -70,6 +70,6 @@ public class ServerServiceImplementation implements ServerService {
 
     private String setServerImageUrl() {
         String[] imageNames = { "servidores1.png", "servidores2.png","servidores3.png","servidores4.png","servidores5.png","servidores6.png"};
-        return ServletUriComponentsBuilder.fromCurrentContextPath().path("/server/src/main/resources/static/" + imageNames[new Random().nextInt(6)]).toUriString();
+        return ServletUriComponentsBuilder.fromCurrentContextPath().path("/home/kolodani/Pictures/Servidores/" + imageNames[new Random().nextInt(6)]).toUriString();
     }
 }
