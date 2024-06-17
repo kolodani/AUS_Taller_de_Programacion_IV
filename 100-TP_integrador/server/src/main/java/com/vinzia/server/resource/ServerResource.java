@@ -25,7 +25,7 @@ import static org.springframework.http.MediaType.IMAGE_PNG_VALUE;
 public class ServerResource {
     private final ServerServiceImplementation serverService;
 
-    @GetMapping("/List")
+    @GetMapping("/list")
     public ResponseEntity<Response> getServers() {
         return ResponseEntity.ok(
                 Response.builder()
@@ -91,8 +91,8 @@ public class ServerResource {
         );
     }
 
-    @GetMapping(path = "/home/kolodani/Pictures/Servidores/{fileName}", produces = IMAGE_PNG_VALUE)
+    @GetMapping(path = "/image/{fileName}", produces = IMAGE_PNG_VALUE)
     public byte[] getServerImage(@PathVariable("fileName") String fileName) throws IOException {
-        return Files.readAllBytes(Paths.get(System.getProperty("user.home") + "Pictures/Servidores/" + fileName));
+        return Files.readAllBytes(Paths.get(System.getProperty("user.home") + "/Documents/Repositorios/AUS/AUS_Taller_de_Programacion_IV/100-TP_integrador/server/src/main/resources/Servidores/" + fileName));
     }
 }
