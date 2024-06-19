@@ -10,7 +10,7 @@ import { Status } from '../enum/status.enum';
   providedIn: 'root',
 })
 export class ServerService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   // getServers(): Observable<CustomResponse> {
   //     return this.http.get<CustomResponse>(
@@ -18,7 +18,7 @@ export class ServerService {
   //     );
   // }
 
-  private readonly apiUrl = 'any';
+  private readonly apiUrl = 'http://localhost:8080';
 
   server$ = <Observable<CustomResponse>>(
     this.http
@@ -46,25 +46,24 @@ export class ServerService {
       suscriber.next(
         status === Status.ALL
           ? {
-              ...response,
-              message: `Servers filtered by ${status} status`,
-            }
+            ...response,
+            message: `Servers filtered by ${status} status`,
+          }
           : {
-              ...response,
-              message:
-                response.data.servers.filter(
-                  (server) => server.status === status
-                ).length > 0
-                  ? `Servers filtered by ${
-                      status === Status.SERVER_UP ? 'SERVER UP' : 'SERVER DOWN'
-                    } status`
-                  : `No servers of ${status} found`,
-              data: {
-                servers: response.data.servers.filter(
-                  (server) => server.status === status
-                ),
-              },
-            }
+            ...response,
+            message:
+              response.data.servers.filter(
+                (server) => server.status === status
+              ).length > 0
+                ? `Servers filtered by ${status === Status.SERVER_UP ? 'SERVER UP' : 'SERVER DOWN'
+                } status`
+                : `No servers of ${status} found`,
+            data: {
+              servers: response.data.servers.filter(
+                (server) => server.status === status
+              ),
+            },
+          }
       );
       suscriber.complete();
     }).pipe(tap(console.log), catchError(this.handleError));
