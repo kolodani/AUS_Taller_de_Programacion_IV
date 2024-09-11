@@ -43,7 +43,7 @@ public class MarcaAutoController {
             return ResponseEntity.status(HttpStatus.CREATED)
                     .body(iMarcaAutoService.save(marcaAutoPojoNew));
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
     }
 
