@@ -50,18 +50,31 @@ public class MarcaAutoService implements IMarcaAutoService{
     }
 
     /**
+     * Actualiza una marca de auto
+     * @param newMarcaAuto Marca de auto a actualizar
+     * @return Optional con marca de autos actualizada
+     */
+    @Override
+    public Optional<MarcaAutoPojo> update(MarcaAutoPojo newMarcaAuto) {
+        if (iMarcaAutoRepository.getMarcaAuto(newMarcaAuto.getId()).isEmpty()){
+            return Optional.empty();
+        }
+        return Optional.of(iMarcaAutoRepository.save(newMarcaAuto));
+    }
+
+    /**
      * Elimina una marca de auto dada su id
      * @param idMarcaAuto // Id de la marca del auto a eliminar
      * @return // True si se elimino, false de lo contrario
      */
     @Override
     public boolean delete(Integer idMarcaAuto) {
-        try {
-            iMarcaAutoRepository.delete(idMarcaAuto);
-            return true;
-        } catch (Exception e) {
+
+        if (iMarcaAutoRepository.getMarcaAuto(idMarcaAuto).isEmpty()){
             return false;
         }
+        iMarcaAutoRepository.delete(idMarcaAuto);
+        return true;
     }
 }
 

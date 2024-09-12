@@ -22,6 +22,10 @@ public class MarcaAutoController {
      */
     private final IMarcaAutoService iMarcaAutoService;
 
+    /**
+     * Devuelve lista de marcas de autos
+     * @return HttpCode Ok con lista de marcas de autos
+     */
     @GetMapping
     public ResponseEntity<List<MarcaAutoPojo>> getAll(){
         return ResponseEntity.ok(iMarcaAutoService.getAll());
@@ -32,19 +36,49 @@ public class MarcaAutoController {
         // Alternativas para crea RESPONSE_ENTITY
     }
 
+    /**
+     * Devuelve una marca del auto dado su id
+     * @param id Id de la marca coche a buscar
+     * @return HttpCode Ok si la encuentra, HttpCode Not Found de lo contrario
+     */
     @GetMapping(path = "/{id}")
-    public ResponseEntity<MarcaAutoPojo> getMarcaAuto(@PathVariable Integer id){
+    public ResponseEntity<MarcaAutoPojo> getMarcaAuto(@PathVariable(name = "id") Integer id){
         return ResponseEntity.of(iMarcaAutoService.getMarcaAuto(id));
     }
 
+    /**
+     * Crea una nueva marca de auto
+     * @param marcaAutoPojoNew marca coche a crear
+     * @return HttpCode Created si la guarda correctamente, HttpCode BadRequest de lo contrario
+     */
     @PostMapping()
     public ResponseEntity<MarcaAutoPojo> save(@RequestBody MarcaAutoPojo marcaAutoPojoNew){
         try {
             return ResponseEntity.status(HttpStatus.CREATED)
                     .body(iMarcaAutoService.save(marcaAutoPojoNew));
         } catch (Exception e) {
+            // corregir porque no esta mandando excepciones
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
     }
 
+    /**
+     * Actualiza una marca de auto
+     * @param marcaAutoPojoUpdate Marca de auto actualizada
+     * @return HttpCode Ok si la actualiza correctamente
+     */
+    @PatchMapping
+    public ResponseEntity<MarcaAutoPojo> update (@RequestBody MarcaAutoPojo marcaAutoPojoUpdate) {
+        return ResponseEntity.of(iMarcaAutoService.update(marcaAutoPojoUpdate));
+    }
+
+    /**
+     * Elimina una marca cooche dado su id
+     * @param id Id de la marca coche a eliminar
+     * @return HttpCode Ok si lo elimina, HttpCode Not Found si no existe
+     */
+    @DeleteMapping(path = "{id}")
+    public ResponseEntity<Boolean> delete(@PathVariable(name = "id") Integer id) {
+        return new ResponseEntity<>(this.iMarcaAutoService.delete(id) ? HttpStatus.OK : HttpStatus.NOT_FOUND);
+    }
 }
