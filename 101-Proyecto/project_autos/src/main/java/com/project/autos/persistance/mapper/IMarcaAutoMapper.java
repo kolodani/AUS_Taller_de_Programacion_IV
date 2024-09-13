@@ -1,6 +1,6 @@
 package com.project.autos.persistance.mapper;
 
-import com.project.autos.domain.pojo.MarcaAutoPojo;
+import com.project.autos.domain.dto.MarcaAutoDto;
 import com.project.autos.persistance.entity.MarcaAutoEntity;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
@@ -22,7 +22,7 @@ public interface IMarcaAutoMapper {
      */
     @Mapping(source = "id", target = "id")
     @Mapping(source = "description", target = "description")
-    MarcaAutoPojo toMarcaAutoPojo(MarcaAutoEntity marcaEntity);
+    MarcaAutoDto toMarcaAutoPojo(MarcaAutoEntity marcaEntity);
 
     /**
      * Convertir un pojo a una entidad de marca auto
@@ -30,12 +30,12 @@ public interface IMarcaAutoMapper {
      * @return // Entity convertido
      */
     @InheritInverseConfiguration
-    MarcaAutoEntity toMarcaAutoEntity(MarcaAutoPojo marcaPojo);
+    MarcaAutoEntity toMarcaAutoEntity(MarcaAutoDto marcaPojo);
 
     /**
      * Retorna una lista de marcas autos transformada a pojo de una lista de entidades
      * @param marcasCocheEntity // Entidad a transformar
      * @return // Lista transformada
      */
-    List<MarcaAutoPojo> toMarcasAutosPojo(List<MarcaAutoEntity> marcasCocheEntity);
+    List<MarcaAutoDto> toMarcasAutosPojo(List<MarcaAutoEntity> marcasCocheEntity);
 }

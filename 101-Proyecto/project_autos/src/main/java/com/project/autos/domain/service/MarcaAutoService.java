@@ -1,6 +1,6 @@
 package com.project.autos.domain.service;
 
-import com.project.autos.domain.pojo.MarcaAutoPojo;
+import com.project.autos.domain.dto.MarcaAutoDto;
 import com.project.autos.domain.repository.IMarcaAutoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -25,7 +25,7 @@ public class MarcaAutoService implements IMarcaAutoService{
      * @return // lista con marca de autos
      */
     @Override
-    public List<MarcaAutoPojo> getAll() {
+    public List<MarcaAutoDto> getAll() {
         return iMarcaAutoRepository.getAll();
     }
 
@@ -35,7 +35,7 @@ public class MarcaAutoService implements IMarcaAutoService{
      * @return Optinal del marca coche encontrado
      */
     @Override
-    public Optional<MarcaAutoPojo> getMarcaAuto(Integer id) {
+    public Optional<MarcaAutoDto> getMarcaAuto(Integer id) {
         return iMarcaAutoRepository.getMarcaAuto(id);
     }
 
@@ -45,7 +45,7 @@ public class MarcaAutoService implements IMarcaAutoService{
      * @return // Marca coche guardada
      */
     @Override
-    public MarcaAutoPojo save(MarcaAutoPojo newMarcaAuto) {
+    public MarcaAutoDto save(MarcaAutoDto newMarcaAuto) {
         return iMarcaAutoRepository.save(newMarcaAuto);
     }
 
@@ -55,7 +55,7 @@ public class MarcaAutoService implements IMarcaAutoService{
      * @return Optional con marca de autos actualizada
      */
     @Override
-    public Optional<MarcaAutoPojo> update(MarcaAutoPojo newMarcaAuto) {
+    public Optional<MarcaAutoDto> update(MarcaAutoDto newMarcaAuto) {
         if (iMarcaAutoRepository.getMarcaAuto(newMarcaAuto.getId()).isEmpty()){
             return Optional.empty();
         }

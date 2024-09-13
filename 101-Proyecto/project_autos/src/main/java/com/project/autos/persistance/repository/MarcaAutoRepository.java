@@ -1,6 +1,6 @@
 package com.project.autos.persistance.repository;
 
-import com.project.autos.domain.pojo.MarcaAutoPojo;
+import com.project.autos.domain.dto.MarcaAutoDto;
 import com.project.autos.domain.repository.IMarcaAutoRepository;
 import com.project.autos.persistance.entity.MarcaAutoEntity;
 import com.project.autos.persistance.mapper.IMarcaAutoMapper;
@@ -32,7 +32,7 @@ public class MarcaAutoRepository implements IMarcaAutoRepository {
      * @return // Lista con marcas de autos
      */
     @Override
-    public List<MarcaAutoPojo> getAll() {
+    public List<MarcaAutoDto> getAll() {
         return iMarcaAutoMapper.toMarcasAutosPojo(iMarcaAutoCrudRepository.findAll());
     }
 
@@ -42,7 +42,7 @@ public class MarcaAutoRepository implements IMarcaAutoRepository {
      * @return // Optinal del marca coche encontrado
      */
     @Override
-    public Optional<MarcaAutoPojo> getMarcaAuto(Integer id) {
+    public Optional<MarcaAutoDto> getMarcaAuto(Integer id) {
         return iMarcaAutoCrudRepository.findById(id)
                 .map(iMarcaAutoMapper::toMarcaAutoPojo); // Metodo por referencia
         //      marcaAutoEntity -> iMarcaAutoMapper.toMarcaAutoPojo(marcaAutoEntity
@@ -55,7 +55,7 @@ public class MarcaAutoRepository implements IMarcaAutoRepository {
      * @return // Marca coche guardada
      */
     @Override
-    public MarcaAutoPojo save(MarcaAutoPojo newMarcaAuto) {
+    public MarcaAutoDto save(MarcaAutoDto newMarcaAuto) {
         MarcaAutoEntity marcaAutoEntity = iMarcaAutoMapper.toMarcaAutoEntity(newMarcaAuto);
         return iMarcaAutoMapper.toMarcaAutoPojo(iMarcaAutoCrudRepository.save(marcaAutoEntity));
     }

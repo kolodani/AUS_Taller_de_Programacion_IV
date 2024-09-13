@@ -1,6 +1,6 @@
 package com.project.autos.domain.service;
 
-import com.project.autos.domain.pojo.MarcaAutoPojo;
+import com.project.autos.domain.dto.MarcaAutoDto;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,28 +11,28 @@ public interface IMarcaAutoService {
      * Devuelve una lista con todas las marcas de coches
      * @return // lista con marca de autos
      */
-    List<MarcaAutoPojo> getAll();
+    List<MarcaAutoDto> getAll();
 
     /**
      * Devuelve una marca de un coche dada su id
      * @param id Id de marca coche
      * @return Optinal del marca coche encontrado
      */
-    Optional<MarcaAutoPojo> getMarcaAuto(Integer id);
+    Optional<MarcaAutoDto> getMarcaAuto(Integer id);
 
     /**
      * Guarda una nueva marca de auto
      * @param newMarcaAuto // Marca coche a guarda
      * @return // Marca coche guardada
      */
-    MarcaAutoPojo save(MarcaAutoPojo newMarcaAuto);
+    MarcaAutoDto save(MarcaAutoDto newMarcaAuto);
 
     /**
      * Actualiza una marca de auto
      * @param newMarcaAuto Marca de auto a actualizar
      * @return Marca de auto actualizada
      */
-    Optional<MarcaAutoPojo> update(MarcaAutoPojo newMarcaAuto);
+    Optional<MarcaAutoDto> update(MarcaAutoDto newMarcaAuto);
 
     /**
      * Elimina una marca de auto dada su id

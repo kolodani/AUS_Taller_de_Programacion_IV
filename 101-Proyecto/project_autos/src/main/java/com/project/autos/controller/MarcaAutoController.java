@@ -1,6 +1,6 @@
 package com.project.autos.controller;
 
-import com.project.autos.domain.pojo.MarcaAutoPojo;
+import com.project.autos.domain.dto.MarcaAutoDto;
 import com.project.autos.domain.service.IMarcaAutoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -27,7 +27,7 @@ public class MarcaAutoController {
      * @return HttpCode Ok con lista de marcas de autos
      */
     @GetMapping
-    public ResponseEntity<List<MarcaAutoPojo>> getAll(){
+    public ResponseEntity<List<MarcaAutoDto>> getAll(){
         return ResponseEntity.ok(iMarcaAutoService.getAll());
         // return ResponseEntity.status(HttpStatus.OK)
         //      .body(iMarcaAutoService.getAll());
@@ -42,20 +42,20 @@ public class MarcaAutoController {
      * @return HttpCode Ok si la encuentra, HttpCode Not Found de lo contrario
      */
     @GetMapping(path = "/{id}")
-    public ResponseEntity<MarcaAutoPojo> getMarcaAuto(@PathVariable(name = "id") Integer id){
+    public ResponseEntity<MarcaAutoDto> getMarcaAuto(@PathVariable(name = "id") Integer id){
         return ResponseEntity.of(iMarcaAutoService.getMarcaAuto(id));
     }
 
     /**
      * Crea una nueva marca de auto
-     * @param marcaAutoPojoNew marca coche a crear
+     * @param marcaAutoDtoNew marca coche a crear
      * @return HttpCode Created si la guarda correctamente, HttpCode BadRequest de lo contrario
      */
     @PostMapping()
-    public ResponseEntity<MarcaAutoPojo> save(@RequestBody MarcaAutoPojo marcaAutoPojoNew){
+    public ResponseEntity<MarcaAutoDto> save(@RequestBody MarcaAutoDto marcaAutoDtoNew){
         try {
             return ResponseEntity.status(HttpStatus.CREATED)
-                    .body(iMarcaAutoService.save(marcaAutoPojoNew));
+                    .body(iMarcaAutoService.save(marcaAutoDtoNew));
         } catch (Exception e) {
             // corregir porque no esta mandando excepciones
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
@@ -64,12 +64,12 @@ public class MarcaAutoController {
 
     /**
      * Actualiza una marca de auto
-     * @param marcaAutoPojoUpdate Marca de auto actualizada
+     * @param marcaAutoDtoUpdate Marca de auto actualizada
      * @return HttpCode Ok si la actualiza correctamente
      */
     @PatchMapping
-    public ResponseEntity<MarcaAutoPojo> update (@RequestBody MarcaAutoPojo marcaAutoPojoUpdate) {
-        return ResponseEntity.of(iMarcaAutoService.update(marcaAutoPojoUpdate));
+    public ResponseEntity<MarcaAutoDto> update (@RequestBody MarcaAutoDto marcaAutoDtoUpdate) {
+        return ResponseEntity.of(iMarcaAutoService.update(marcaAutoDtoUpdate));
     }
 
     /**
