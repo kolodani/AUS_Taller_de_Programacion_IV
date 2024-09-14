@@ -14,7 +14,6 @@ import lombok.Setter;
 public class ClienteEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "dni")
     private Integer dni;
 

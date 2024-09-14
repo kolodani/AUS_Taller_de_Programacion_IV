@@ -41,6 +41,6 @@ public class ClienteRepository implements IClienteRepository {
 
     @Override
     public void delete(Integer dni) {
-        iClienteCrudRepository.findById(dni);
+        iClienteCrudRepository.deleteById(dni);
     }
 }
