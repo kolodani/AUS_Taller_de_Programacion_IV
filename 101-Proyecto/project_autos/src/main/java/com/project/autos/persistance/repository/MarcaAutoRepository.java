@@ -33,7 +33,7 @@ public class MarcaAutoRepository implements IMarcaAutoRepository {
      */
     @Override
     public List<MarcaAutoDto> getAll() {
-        return iMarcaAutoMapper.toMarcasAutosPojo(iMarcaAutoCrudRepository.findAll());
+        return iMarcaAutoMapper.toMarcasAutosDto(iMarcaAutoCrudRepository.findAll());
     }
 
     /**
@@ -44,7 +44,7 @@ public class MarcaAutoRepository implements IMarcaAutoRepository {
     @Override
     public Optional<MarcaAutoDto> getMarcaAuto(Integer id) {
         return iMarcaAutoCrudRepository.findById(id)
-                .map(iMarcaAutoMapper::toMarcaAutoPojo); // Metodo por referencia
+                .map(iMarcaAutoMapper::toMarcaAutoDto); // Metodo por referencia
         //      marcaAutoEntity -> iMarcaAutoMapper.toMarcaAutoPojo(marcaAutoEntity
         // Cambio a la recomendacion pero lo que hago originalmente es la funcion lambda
     }
@@ -57,7 +57,7 @@ public class MarcaAutoRepository implements IMarcaAutoRepository {
     @Override
     public MarcaAutoDto save(MarcaAutoDto newMarcaAuto) {
         MarcaAutoEntity marcaAutoEntity = iMarcaAutoMapper.toMarcaAutoEntity(newMarcaAuto);
-        return iMarcaAutoMapper.toMarcaAutoPojo(iMarcaAutoCrudRepository.save(marcaAutoEntity));
+        return iMarcaAutoMapper.toMarcaAutoDto(iMarcaAutoCrudRepository.save(marcaAutoEntity));
     }
 
     /**

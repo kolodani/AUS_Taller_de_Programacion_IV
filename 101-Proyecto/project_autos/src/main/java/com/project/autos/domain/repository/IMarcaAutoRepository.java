@@ -5,6 +5,9 @@ import com.project.autos.domain.dto.MarcaAutoDto;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Interface del repositorio de marcas de autos
+ */
 public interface IMarcaAutoRepository {
 
     /**

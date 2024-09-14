@@ -22,7 +22,7 @@ public interface IMarcaAutoMapper {
      */
     @Mapping(source = "id", target = "id")
     @Mapping(source = "description", target = "description")
-    MarcaAutoDto toMarcaAutoPojo(MarcaAutoEntity marcaEntity);
+    MarcaAutoDto toMarcaAutoDto(MarcaAutoEntity marcaEntity);
 
     /**
      * Convertir un pojo a una entidad de marca auto
@@ -37,5 +37,5 @@ public interface IMarcaAutoMapper {
      * @param marcasCocheEntity // Entidad a transformar
      * @return // Lista transformada
      */
-    List<MarcaAutoDto> toMarcasAutosPojo(List<MarcaAutoEntity> marcasCocheEntity);
+    List<MarcaAutoDto> toMarcasAutosDto(List<MarcaAutoEntity> marcasCocheEntity);
 }
