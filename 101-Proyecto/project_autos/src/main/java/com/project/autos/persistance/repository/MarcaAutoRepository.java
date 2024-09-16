@@ -2,6 +2,7 @@ package com.project.autos.persistance.repository;
 
 import com.project.autos.domain.dto.MarcaAutoDto;
 import com.project.autos.domain.repository.IMarcaAutoRepository;
+import com.project.autos.persistance.crud.IMarcaAutoCrudRepository;
 import com.project.autos.persistance.entity.MarcaAutoEntity;
 import com.project.autos.persistance.mapper.IMarcaAutoMapper;
 import lombok.RequiredArgsConstructor;

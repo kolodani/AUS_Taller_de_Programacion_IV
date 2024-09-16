@@ -1,11 +1,11 @@
-package com.project.autos.domain.service;
+package com.project.autos.domain.usecase;
 
 import com.project.autos.domain.dto.MarcaAutoDto;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface IMarcaAutoService {
+public interface IMarcaAutoUseCase {
 
     /**
      * Devuelve una lista con todas las marcas de coches

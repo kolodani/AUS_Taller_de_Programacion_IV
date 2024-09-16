@@ -3,6 +3,7 @@ package com.project.autos.domain.service;
 import com.project.autos.domain.dto.ClienteDto;
 import com.project.autos.domain.dto.RespuestaClienteDto;
 import com.project.autos.domain.repository.IClienteRepository;
+import com.project.autos.domain.usecase.IClienteUseCase;
 import com.project.autos.exception.EmailValidationException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,7 +14,7 @@ import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
-public class ClienteService implements IClienteService {
+public class ClienteService implements IClienteUseCase {
 
     private final IClienteRepository iClienteRepository;
 

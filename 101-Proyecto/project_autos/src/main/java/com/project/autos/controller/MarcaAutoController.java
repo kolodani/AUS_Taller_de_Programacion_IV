@@ -1,7 +1,7 @@
 package com.project.autos.controller;
 
 import com.project.autos.domain.dto.MarcaAutoDto;
-import com.project.autos.domain.service.IMarcaAutoService;
+import com.project.autos.domain.usecase.IMarcaAutoUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +20,7 @@ public class MarcaAutoController {
     /**
      * Servicio de marca coche
      */
-    private final IMarcaAutoService iMarcaAutoService;
+    private final IMarcaAutoUseCase iMarcaAutoUseCase;
 
     /**
      * Devuelve lista de marcas de autos
@@ -28,11 +28,11 @@ public class MarcaAutoController {
      */
     @GetMapping
     public ResponseEntity<List<MarcaAutoDto>> getAll(){
-        return ResponseEntity.ok(iMarcaAutoService.getAll());
+        return ResponseEntity.ok(iMarcaAutoUseCase.getAll());
         // return ResponseEntity.status(HttpStatus.OK)
-        //      .body(iMarcaAutoService.getAll());
+        //      .body(iMarcaAutoUseCase.getAll());
 
-        // return new ResponseEntity<>(iMarcaAutoService.getAll(), HttpStatus.OK);
+        // return new ResponseEntity<>(iMarcaAutoUseCase.getAll(), HttpStatus.OK);
         // Alternativas para crea RESPONSE_ENTITY
     }
 
@@ -43,7 +43,7 @@ public class MarcaAutoController {
      */
     @GetMapping(path = "/{id}")
     public ResponseEntity<MarcaAutoDto> getMarcaAuto(@PathVariable(name = "id") Integer id){
-        return ResponseEntity.of(iMarcaAutoService.getMarcaAuto(id));
+        return ResponseEntity.of(iMarcaAutoUseCase.getMarcaAuto(id));
     }
 
     /**
@@ -55,7 +55,7 @@ public class MarcaAutoController {
     public ResponseEntity<MarcaAutoDto> save(@RequestBody MarcaAutoDto marcaAutoDtoNew){
         try {
             return ResponseEntity.status(HttpStatus.CREATED)
-                    .body(iMarcaAutoService.save(marcaAutoDtoNew));
+                    .body(iMarcaAutoUseCase.save(marcaAutoDtoNew));
         } catch (Exception e) {
             // corregir porque no esta mandando excepciones
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
@@ -69,7 +69,7 @@ public class MarcaAutoController {
      */
     @PatchMapping
     public ResponseEntity<MarcaAutoDto> update (@RequestBody MarcaAutoDto marcaAutoDtoUpdate) {
-        return ResponseEntity.of(iMarcaAutoService.update(marcaAutoDtoUpdate));
+        return ResponseEntity.of(iMarcaAutoUseCase.update(marcaAutoDtoUpdate));
     }
 
     /**
@@ -79,6 +79,6 @@ public class MarcaAutoController {
      */
     @DeleteMapping(path = "{id}")
     public ResponseEntity<Boolean> delete(@PathVariable(name = "id") Integer id) {
-        return new ResponseEntity<>(this.iMarcaAutoService.delete(id) ? HttpStatus.OK : HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(this.iMarcaAutoUseCase.delete(id) ? HttpStatus.OK : HttpStatus.NOT_FOUND);
     }
 }

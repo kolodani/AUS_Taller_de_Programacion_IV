@@ -1,4 +1,4 @@
-package com.project.autos.domain.service;
+package com.project.autos.domain.usecase;
 
 import com.project.autos.domain.dto.ClienteDto;
 import com.project.autos.domain.dto.RespuestaClienteDto;
@@ -9,7 +9,7 @@ import java.util.Optional;
 /**
  * Interfaz de servicio de cliente
  */
-public interface IClienteService {
+public interface IClienteUseCase {
     /**
      * Devuelve una lista con todos los clientes
      * @return // lista con clientes

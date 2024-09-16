@@ -2,6 +2,7 @@ package com.project.autos.persistance.repository;
 
 import com.project.autos.domain.dto.ClienteDto;
 import com.project.autos.domain.repository.IClienteRepository;
+import com.project.autos.persistance.crud.IClienteCrudRepository;
 import com.project.autos.persistance.mapper.IClienteMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;

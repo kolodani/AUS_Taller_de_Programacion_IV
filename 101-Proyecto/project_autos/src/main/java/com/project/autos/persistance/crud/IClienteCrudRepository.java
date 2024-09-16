@@ -1,8 +1,7 @@
-package com.project.autos.persistance.repository;
+package com.project.autos.persistance.crud;
 
 import com.project.autos.persistance.entity.ClienteEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 
 import java.util.Optional;
 

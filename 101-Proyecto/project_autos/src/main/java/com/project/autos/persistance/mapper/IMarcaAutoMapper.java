@@ -30,6 +30,7 @@ public interface IMarcaAutoMapper {
      * @return // Entity convertido
      */
     @InheritInverseConfiguration
+    @Mapping(target = "carEntities", ignore = true)
     MarcaAutoEntity toMarcaAutoEntity(MarcaAutoDto marcaPojo);
 
     /**
