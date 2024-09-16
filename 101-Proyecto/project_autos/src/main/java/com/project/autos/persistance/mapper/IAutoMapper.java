@@ -13,6 +13,7 @@ public interface IAutoMapper {
     AutoDto toAutoDto(AutoEntity autoEntity);
 
     @Mapping(target = "brandCarEntity", ignore = true)
+    @Mapping(target = "autoCompraEntity", ignore = true)
     AutoEntity toAutoEntity(AutoDto autoDto);
 
     List<AutoDto> toAutosDto(List<AutoEntity> autoEntityList);
