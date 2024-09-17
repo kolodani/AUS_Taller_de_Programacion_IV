@@ -64,6 +64,9 @@ public class AutoEntity {
     @Column(name = "pwd_auto")
     private String pathImage;
 
+    @Column(name = "stock")
+    private Integer stock;
+
     @ManyToOne
     @JoinColumn(name = "marca_id", insertable = false, updatable = false)
     private MarcaAutoEntity brandCarEntity;

@@ -10,13 +10,9 @@ import java.util.List;
 /**
  * Mapper de compras
  */
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = {IAutoCompraMapper.class})
 public interface ICompraMapper {
-
-    CompraRequestDto toCompraRequestDto(CompraEntity compraEntity);
 
     @Mapping(target = "clienteEntity", ignore = true)
     CompraEntity toCompraEntity(CompraRequestDto compraRequestDto);
-
-    List<CompraRequestDto> toComprasDto(List<CompraEntity> comprasEntities);
 }

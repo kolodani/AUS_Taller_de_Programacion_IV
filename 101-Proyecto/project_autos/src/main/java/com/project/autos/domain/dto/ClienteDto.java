@@ -1,5 +1,6 @@
 package com.project.autos.domain.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,6 +9,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
+@AllArgsConstructor
 public class ClienteDto {
 
     private Integer dni;
@@ -21,4 +23,6 @@ public class ClienteDto {
     private Integer active;
 
     private String password;
+
+    private String rol;
 }

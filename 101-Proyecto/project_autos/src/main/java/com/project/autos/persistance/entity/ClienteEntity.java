@@ -34,6 +34,9 @@ public class ClienteEntity {
     @Column(name = "contrasenia")
     private String password;
 
+    @Column(name = "rol")
+    private String rol;
+
     @OneToMany(mappedBy = "clienteEntity")
     private List<CompraEntity> compraEntity;
 }

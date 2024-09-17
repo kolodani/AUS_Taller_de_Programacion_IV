@@ -41,4 +41,6 @@ public class AutoDto {
     private String category;
 
     private String pathImage;
+
+    private Integer stock;
 }

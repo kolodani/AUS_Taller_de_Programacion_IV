@@ -5,7 +5,9 @@ import com.project.autos.domain.dto.RespuestaClienteDto;
 import com.project.autos.domain.repository.IClienteRepository;
 import com.project.autos.domain.usecase.IClienteUseCase;
 import com.project.autos.exception.EmailValidationException;
+import com.project.autos.security.Roles;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.security.SecureRandom;
@@ -17,6 +19,8 @@ import java.util.Optional;
 public class ClienteService implements IClienteUseCase {
 
     private final IClienteRepository iClienteRepository;
+
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public List<ClienteDto> getAll() {
@@ -40,9 +44,10 @@ public class ClienteService implements IClienteUseCase {
                 + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$")) {
             throw new EmailValidationException();
         }
-        String passwordGenerated = generateRandomPassword(8);
-        newCliente.setPassword(passwordGenerated);
+        String passwordGenerated = generateRandomPassword(10);
+        newCliente.setPassword(passwordEncoder.encode(passwordGenerated));
         newCliente.setActive(1);
+        newCliente.setRol(Roles.CUSTOMER);
         iClienteRepository.save(newCliente);
 
         return new RespuestaClienteDto(passwordGenerated);
