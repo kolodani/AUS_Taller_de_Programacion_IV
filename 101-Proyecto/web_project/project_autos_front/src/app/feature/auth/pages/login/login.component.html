@@ -27,7 +27,7 @@
               <div class="form-outline mb-4">
                 <label class="form-label" for="form3Example3">Dirección de correo electronico</label>
                 <input formControlName="email" [ngClass]="{'error': isTouchedField(loginForm, 'email')}" type="email"
-                  id="form3Example3" class="form-control" placeholder="Tu super correo" />
+                  id="form3Example3" class="form-control" placeholder="Tu correo" />
                 <span class="text-danger">{{getErrorForm('email')}}</span>
               </div>
 
@@ -35,7 +35,7 @@
               <div class="form-outline mb-4">
                 <label class="form-label" for="form3Example4">Contraseña</label>
                 <input formControlName="password" [ngClass]="{'error': isTouchedField(loginForm, 'password')}"
-                  type="password" id="form3Example4" class="form-control" placeholder="Tu super contraseña" />
+                  type="password" id="form3Example4" class="form-control" placeholder="Tu contraseña" />
                 <span class="text-danger">{{getErrorForm('password')}}</span>
               </div>
 
