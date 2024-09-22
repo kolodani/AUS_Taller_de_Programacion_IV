@@ -4,6 +4,7 @@ import com.project.autos.domain.dto.ClienteDto;
 import com.project.autos.domain.dto.RespuestaClienteDto;
 import com.project.autos.domain.repository.IClienteRepository;
 import com.project.autos.domain.usecase.IClienteUseCase;
+import com.project.autos.exception.CustomerExistsException;
 import com.project.autos.exception.EmailValidationException;
 import com.project.autos.security.Roles;
 import lombok.RequiredArgsConstructor;
@@ -44,6 +45,11 @@ public class ClienteService implements IClienteUseCase {
                 + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$")) {
             throw new EmailValidationException();
         }
+
+        if (getClienteById(newCliente.getDni()).isPresent() || getClienteByEmail(newCliente.getEmail()).isPresent()){
+            throw new CustomerExistsException();
+        }
+
         String passwordGenerated = generateRandomPassword(10);
         newCliente.setPassword(passwordEncoder.encode(passwordGenerated));
         newCliente.setActive(1);

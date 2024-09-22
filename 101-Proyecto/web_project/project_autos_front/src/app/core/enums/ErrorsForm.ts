@@ -1,0 +1,5 @@
+export enum ErrorForm {
+  REQUIRED = "El campo es requerido",
+  ONLY_NUMBER = "Solo se aceptan números",
+  EMAIL_FORMAT = "Debe tener el formato correcto de un email"
+}

@@ -50,17 +50,6 @@ public class ClienteController {
     }
 
     /**
-     * Crea un nuevo cliente
-     * @param clienteDtoNew cliente a crear
-     * @return HttpCode Created si la guarda correctamente, HttpCode BadRequest de lo contrario
-     */
-    @PostMapping()
-    public ResponseEntity<RespuestaClienteDto> save(@RequestBody ClienteDto clienteDtoNew){
-        return ResponseEntity.status(HttpStatus.CREATED)
-                .body(iClienteUseCase.save(clienteDtoNew));
-    }
-
-    /**
      * Actualiza un cliente
      * @param clienteDtoUpdate cliente actualizado
      * @return HttpCode Ok si la actualiza correctamente

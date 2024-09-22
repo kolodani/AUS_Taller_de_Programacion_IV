@@ -6,6 +6,7 @@ import { AuthLoginRequestDto } from '../../../../core/dto/authLoginRequestDto';
 import { AuthService } from '../../../../core/services/auth.service';
 import { lastValueFrom } from 'rxjs';
 import { TokenService } from '../../../../core/services/token.service';
+import { ErrorForm } from '../../../../core/enums/ErrorsForm';
 
 @Component({
   selector: 'app-login',
@@ -59,9 +60,9 @@ export class LoginComponent extends AppBaseComponent {
     let message;
     if (this.isTouchedField(this.loginForm, field)) {
       if (this.loginForm.get(field).hasError('required')) {
-        message = 'El campo es requerido';
+        message = ErrorForm.REQUIRED;
       } else if (this.loginForm.get(field).hasError('email')) {
-        message = 'Requiere el formato de Email';
+        message = ErrorForm.EMAIL_FORMAT;
       }
     }
     return message;
