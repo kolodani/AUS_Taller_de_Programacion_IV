@@ -10,6 +10,7 @@ import java.util.List;
 @Mapper(componentModel = "spring")
 public interface IAutoMapper {
 
+    @Mapping(source = "brandCarEntity.description", target = "brandCarString")
     AutoDto toAutoDto(AutoEntity autoEntity);
 
     @Mapping(target = "brandCarEntity", ignore = true)

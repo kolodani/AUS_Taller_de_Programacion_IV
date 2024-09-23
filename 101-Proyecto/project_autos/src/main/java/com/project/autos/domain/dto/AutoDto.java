@@ -14,6 +14,8 @@ public class AutoDto {
 
     private Integer brandCarId;
 
+    private String brandCarString;
+
     private String reference;
 
     private Double price;

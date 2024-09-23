@@ -3,10 +3,10 @@ import { AppBaseComponent } from '../../../../core/utils/AppBaseComponent';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../../../core/services/auth.service';
 import { Router } from '@angular/router';
-import { CustomValidators } from '../../../../core/utils/CustomValidators';
 import { ErrorForm } from '../../../../core/enums/ErrorsForm';
 import { RegisterRequestDto } from '../../../../core/dto/registerRequestDto';
 import { lastValueFrom } from 'rxjs';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -47,7 +47,13 @@ export class RegisterComponent extends AppBaseComponent {
       })
       this.registered = true;
     } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Hay errores en el formulario, reviselo por favor'
+      })
       console.log(this.getAllErrorsForm(this.registerForm));
+      this.registerForm.markAllAsTouched();
     }
   }
 
