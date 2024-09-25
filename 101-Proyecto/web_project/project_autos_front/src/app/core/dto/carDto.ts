@@ -11,10 +11,10 @@ export interface CarDto {
   engineDisplacement: number;
   transmission: string;
   fuelType: string;
-  numberSeats: number;
+  numberSeat: number;
   traction: number;
   steering: string;
   category: string;
-  imagePath: string;
+  pathImage: string;
   stock: number;
 }
