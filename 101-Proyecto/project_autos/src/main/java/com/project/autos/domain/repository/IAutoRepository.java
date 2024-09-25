@@ -13,9 +13,9 @@ public interface IAutoRepository {
 
     List<AutoDto> getAutoByPriceLessPriceThan(Double price);
 
-    Optional<AutoDto> getAuto(String autoId);
+    Optional<AutoDto> getAuto(Integer autoId);
 
     AutoDto save(AutoDto newAuto);
 
-    void delete(String autoId);
+    void delete(Integer autoId);
 }

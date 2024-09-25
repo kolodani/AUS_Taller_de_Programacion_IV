@@ -34,7 +34,7 @@ public class AutoRepository implements IAutoRepository {
     }
 
     @Override
-    public Optional<AutoDto> getAuto(String autoId) {
+    public Optional<AutoDto> getAuto(Integer autoId) {
         return iAutoCrudRepository.findById(autoId).map(iAutoMapper::toAutoDto);
     }
 
@@ -44,7 +44,7 @@ public class AutoRepository implements IAutoRepository {
     }
 
     @Override
-    public void delete(String autoId) {
+    public void delete(Integer autoId) {
         iAutoCrudRepository.deleteById(autoId);
     }
 }

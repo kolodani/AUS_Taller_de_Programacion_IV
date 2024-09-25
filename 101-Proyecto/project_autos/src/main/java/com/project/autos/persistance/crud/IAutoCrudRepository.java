@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface IAutoCrudRepository extends JpaRepository<AutoEntity, String> {
+public interface IAutoCrudRepository extends JpaRepository<AutoEntity, Integer> {
 
     List<AutoEntity> findAllByBrandCarId(Integer brandCarId);
 

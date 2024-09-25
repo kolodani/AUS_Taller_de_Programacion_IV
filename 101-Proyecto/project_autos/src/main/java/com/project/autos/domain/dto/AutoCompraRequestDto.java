@@ -12,7 +12,7 @@ public class AutoCompraRequestDto {
 
     private Integer purchaseNumberBill;
 
-    private String codeCar;
+    private Integer codeCar;
 
     private Integer quantity;
 

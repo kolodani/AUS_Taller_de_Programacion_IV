@@ -13,9 +13,9 @@ public interface IAutoUseCase {
 
     List<AutoDto> getAutoByPriceLessPriceThan(Double price);
 
-    Optional<AutoDto> getAuto(String autoId);
+    Optional<AutoDto> getAuto(Integer autoId);
 
     AutoDto save(AutoDto newAuto);
 
-    boolean delete(String autoId);
+    boolean delete(Integer autoId);
 }

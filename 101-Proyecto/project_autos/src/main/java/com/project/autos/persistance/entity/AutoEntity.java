@@ -16,8 +16,9 @@ import java.util.List;
 public class AutoEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "codigo_auto")
-    private String codeCar;
+    private Integer codeCar;
 
     @Column(name = "marca_id")
     private Integer brandCarId;

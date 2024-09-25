@@ -20,5 +20,5 @@ public class AutoCompraPK implements Serializable {
     private Integer purchaseNumberBill;
 
     @Column(name = "autos_codigo_auto")
-    private String codeCar;
+    private Integer codeCar;
 }

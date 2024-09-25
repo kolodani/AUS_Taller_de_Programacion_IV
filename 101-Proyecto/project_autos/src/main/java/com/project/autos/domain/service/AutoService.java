@@ -31,7 +31,7 @@ public class AutoService implements IAutoUseCase {
     }
 
     @Override
-    public Optional<AutoDto> getAuto(String autoId) {
+    public Optional<AutoDto> getAuto(Integer autoId) {
         return iAutoRepository.getAuto(autoId);
     }
 
@@ -41,7 +41,7 @@ public class AutoService implements IAutoUseCase {
     }
 
     @Override
-    public boolean delete(String autoId) {
+    public boolean delete(Integer autoId) {
         if (iAutoRepository.getAuto(autoId).isEmpty()){
             return false;
         }

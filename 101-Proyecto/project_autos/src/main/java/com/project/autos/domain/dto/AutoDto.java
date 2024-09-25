@@ -1,5 +1,6 @@
 package com.project.autos.domain.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,9 +9,10 @@ import lombok.Setter;
  */
 @Getter
 @Setter
+@AllArgsConstructor
 public class AutoDto {
 
-    private String codeCar;
+    private Integer codeCar;
 
     private Integer brandCarId;
 

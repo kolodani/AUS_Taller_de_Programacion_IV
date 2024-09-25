@@ -32,7 +32,7 @@ public class AutoController {
     }
 
     @GetMapping(path = "/{autoId}")
-    public ResponseEntity<AutoDto> getAuto(@PathVariable String autoId){
+    public ResponseEntity<AutoDto> getAuto(@PathVariable Integer autoId){
         return ResponseEntity.of(iAutoUseCase.getAuto(autoId));
     }
 
@@ -42,7 +42,7 @@ public class AutoController {
     }
 
     @DeleteMapping(path = "/{autoId}")
-    public ResponseEntity<Boolean> delete(@PathVariable String autoId){
+    public ResponseEntity<Boolean> delete(@PathVariable Integer autoId){
         return new ResponseEntity<>(this.iAutoUseCase.delete(autoId) ? HttpStatus.OK : HttpStatus.NOT_FOUND);
     }
 }
