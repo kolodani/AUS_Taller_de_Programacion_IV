@@ -1,6 +1,7 @@
 package com.project.autos.controller;
 
 import com.project.autos.domain.dto.AutoDto;
+import com.project.autos.domain.dto.ClienteDto;
 import com.project.autos.domain.usecase.IAutoUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -39,6 +40,11 @@ public class AutoController {
     @PostMapping()
     public ResponseEntity<AutoDto> save(@RequestBody AutoDto autoDtoNew){
         return ResponseEntity.status(HttpStatus.CREATED).body(iAutoUseCase.save(autoDtoNew));
+    }
+
+    @PatchMapping
+    public ResponseEntity<AutoDto> update (@RequestBody AutoDto autoDtoUpdate) {
+        return ResponseEntity.ok(iAutoUseCase.save(autoDtoUpdate));
     }
 
     @DeleteMapping(path = "/{autoId}")
