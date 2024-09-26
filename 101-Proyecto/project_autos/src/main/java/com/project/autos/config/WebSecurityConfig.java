@@ -57,6 +57,8 @@ public class WebSecurityConfig {
 
                                 .requestMatchers(HttpMethod.GET,"/autos/**").hasAnyRole(Roles.CUSTOMER, Roles.ADMIN)
                                 .requestMatchers(HttpMethod.POST, "/autos/**").hasRole(Roles.ADMIN)
+                                .requestMatchers(HttpMethod.GET,"/compras/**").hasAnyRole(Roles.CUSTOMER, Roles.ADMIN)
+                                .requestMatchers(HttpMethod.POST, "/compras/**").hasRole(Roles.ADMIN)
                                 //.requestMatchers("/autos").hasAuthority("COMPRAR_PRIVILEGE")
                                 //.requestMatchers("/clientes").hasRole(Roles.ADMIN)
 

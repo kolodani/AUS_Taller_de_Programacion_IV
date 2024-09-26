@@ -3,7 +3,7 @@ import { environment } from "../../../environments/environment.development";
 import { HttpClient } from "@angular/common/http";
 import { BehaviorSubject, Observable } from "rxjs";
 import { CarDto } from "../dto/carDto";
-import { CarsPurchaseDto } from "../dto/carPurchaseDto";
+import { CarsPurchaseDto } from "../dto/carsPurchaseDto";
 const { apiUrl } = environment;
 
 @Injectable({

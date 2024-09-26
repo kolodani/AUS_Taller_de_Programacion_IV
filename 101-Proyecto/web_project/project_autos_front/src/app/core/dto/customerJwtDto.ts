@@ -1,5 +1,5 @@
 export interface CustomerJwtDto {
-  "dni": string,
+  "dni": number,
   "fullname": string,
   "numberCellPhone": string,
   "email": string,

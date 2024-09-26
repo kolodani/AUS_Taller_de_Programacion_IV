@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CarService } from '../../../../core/services/car.service';
 import { CarDto } from '../../../../core/dto/carDto';
-import { CarsPurchaseDto } from '../../../../core/dto/carPurchaseDto';
+import { CarsPurchaseDto } from '../../../../core/dto/carsPurchaseDto';
 import Swal from 'sweetalert2';
 
 
@@ -59,7 +59,7 @@ export class PortfolioComponent {
       };
       this.carsPurchase.push(carPurchase);
     }
-    console.log(this.carsPurchase);
+    localStorage.setItem('carsPurchase', JSON.stringify(this.carsPurchase));
   }
 
   public deleteCarShoppingCart(carNew: CarDto): void {
@@ -85,5 +85,6 @@ export class PortfolioComponent {
         }
       }
     }
+    localStorage.setItem('carsPurchase', JSON.stringify(this.carsPurchase));
   }
 }
