@@ -15,4 +15,8 @@ export class PurchaseService {
   public registerPurchase(newPurchase: PurchaseRequestDto): Observable<any>{
     return this.http.post(`${apiUrl}compras`, newPurchase);
   }
+
+  public getAllPurchaseByIdCustomer(idCustomer: number): Observable<any>{
+    return this.http.get(`${apiUrl}compras/clientes/${idCustomer}`);
+  }
 }
