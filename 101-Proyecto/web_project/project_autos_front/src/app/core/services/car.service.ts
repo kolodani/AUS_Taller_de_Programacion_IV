@@ -18,7 +18,6 @@ export class CarService {
     this.setNumberProducts();
   }
 
-
   public getAllCars(): Observable<CarDto[]> {
     return this.http.get<CarDto[]>(`${apiUrl}autos`);
   }
@@ -29,7 +28,7 @@ export class CarService {
 
   public setNumberProducts(): void {
     let count: number = 0;
-    let carsPurchase: Array<CarsPurchaseDto> = JSON.parse(localStorage.getItem("carsPurschase"));
+    let carsPurchase: Array<CarsPurchaseDto> = JSON.parse(localStorage.getItem("carsPurchase"));
 
     if (!carsPurchase) {
       this.numberProducts.next(0);

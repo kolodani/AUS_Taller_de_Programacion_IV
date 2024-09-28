@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CarService } from '../../../../core/services/car.service';
 import { CarDto } from '../../../../core/dto/carDto';
 import { CarsPurchaseDto } from '../../../../core/dto/carsPurchaseDto';
@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
   templateUrl: './portfolio.component.html',
   styleUrl: './portfolio.component.css'
 })
-export class PortfolioComponent {
+export class PortfolioComponent implements OnInit{
 
   public listCarsPortfolio: CarDto[];
 
@@ -25,6 +25,10 @@ export class PortfolioComponent {
         }
       }
     )
+  }
+
+  ngOnInit(): void {
+    this.carsPurchase = JSON.parse(localStorage.getItem("carsPurchase")) ? JSON.parse(localStorage.getItem("carsPurchase")) : [];
   }
 
   public addCarShoppingCart(carNew: CarDto): void {
@@ -60,6 +64,7 @@ export class PortfolioComponent {
       this.carsPurchase.push(carPurchase);
     }
     localStorage.setItem('carsPurchase', JSON.stringify(this.carsPurchase));
+    this.carService.setNumberProducts();
   }
 
   public deleteCarShoppingCart(carNew: CarDto): void {
@@ -86,5 +91,7 @@ export class PortfolioComponent {
       }
     }
     localStorage.setItem('carsPurchase', JSON.stringify(this.carsPurchase));
+    this.carService.setNumberProducts();
   }
+
 }
