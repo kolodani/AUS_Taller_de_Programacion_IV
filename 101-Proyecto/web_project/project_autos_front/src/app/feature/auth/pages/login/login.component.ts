@@ -33,7 +33,11 @@ export class LoginComponent extends AppBaseComponent {
   public async signIn(): Promise<void> {
     let dtoLogin: AuthLoginRequestDto;
     if (this.loginForm.valid) {
-      alert("todo correcto");
+      Swal.fire({
+        icon: 'success',
+        title: 'Bienvenido...',
+        text: 'Todo correcto'
+      })
       let email = this.loginForm.get('email').value;
       let password = this.loginForm.get('password').value;
       dtoLogin = {

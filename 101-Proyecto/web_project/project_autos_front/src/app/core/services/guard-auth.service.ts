@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Router } from "@angular/router";
 import { TokenService } from "./token.service";
 import { Roles } from '../enums/Roles';
+import Swal from 'sweetalert2';
+
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +29,11 @@ export class GuardAuthService {
    */
   public canActiveWithAuth(): boolean {
     if (!this.tokenService.getToken()) {
-      alert("no tienes permisos");
+      Swal.fire({
+        icon: 'error',
+        title: 'Denegado...',
+        text: 'No tiene los permisos para ver esta pagina'
+      })
       this.router.navigateByUrl("/autenticacion/inicio-sesion");
       return false;
     }
@@ -37,7 +43,11 @@ export class GuardAuthService {
 
   public canActiveWithRolAdmin(): boolean {
     if (this.tokenService.getInfoToken().rol != Roles.ADMIN && !this.canActiveWithAuth()) {
-      alert("no tienes permisos");
+      Swal.fire({
+        icon: 'error',
+        title: 'Denegado...',
+        text: 'No tiene los permisos para ver esta pagina'
+      })
       this.router.navigateByUrl("/autenticacion/inicio-sesion");
       return false;
     }
